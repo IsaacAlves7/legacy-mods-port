@@ -6,3 +6,22 @@ Mas agora, como rodar mods do forge modloader 1.7.10 em versões mais novas do m
 
 Para rodar mods do Forge 1.7.10 em versões modernas, você precisaria de uma solução de compatibilidade que é tecnicamente complexa. Aqui estão as abordagens possíveis:
 
+1) Porting Layer / Compatibility Wrapper (Abordagem Recomendada):
+
+```java
+// Exemplo conceitual de um adaptador
+public class LegacyModAdapter {
+    private Map<String, CompatHandler> legacyApis = new HashMap<>();
+    
+    public void init() {
+        // Mapear APIs antigas para novas
+        legacyApis.put("net.minecraftforge.event", new ForgeEventAdapter());
+        legacyApis.put("cpw.mods.fml.common", new FMLAdapter());
+    }
+    
+    public Object invokeLegacyMethod(String className, String methodName, Object... args) {
+        // Traduzir chamadas antigas para novas APIs
+        return translateCall(className, methodName, args);
+    }
+}
+```
