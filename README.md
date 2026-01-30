@@ -8,7 +8,7 @@ Mas agora, como rodar mods do forge modloader 1.7.10 em versões mais novas do m
 
 Para rodar mods do Forge 1.7.10 em versões modernas, você precisaria de uma solução de compatibilidade que é tecnicamente complexa. Aqui estão as abordagens possíveis:
 
-1) Porting Layer / Compatibility Wrapper (Abordagem Recomendada):
+1) Porting Layer / Compatibility Wrapper (Abordagem Recomendada): É uma camada de software que traduz chamadas de API antigas (Forge 1.7.10) para APIs modernas (NeoForge/Fabric 1.21), permitindo que código antigo funcione em novas versões sem modificação direta.
 
 ```java
 // Exemplo conceitual de um adaptador
