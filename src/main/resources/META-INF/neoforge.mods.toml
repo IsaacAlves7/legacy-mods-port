@@ -1,0 +1,8 @@
+modLoader="javafml"
+loaderVersion="[26,)"
+license="MIT"
+
+[[mods]]
+modId="legacyport"
+version="1.0.0"
+displayName="Legacy Mods Port"
