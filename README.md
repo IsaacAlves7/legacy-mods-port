@@ -1,11 +1,13 @@
-# Legacy Mods port for Minecraft Java Edition (1.7.10 - 26.1.2)
+> Versículo chave: "Consagre ao Senhor tudo o que você faz, e os seus planos serão bem-sucedidos." - Provérbios 16:3
+
+## Legacy Mods port for Minecraft Java Edition (1.7.10 - 26.1.2)
 <a href="https://neoforged.net/"><img src="https://github.com/user-attachments/assets/dedf4b64-3ab1-444d-9b75-fa1b21640ab7" align="right" height="77"></a>
 
 Como o Minecraft Java Edition não possui código-fonte aberto (Open-source) para podermos editar o conteúdo do jogo, foram criados então os famosos **ModLoaders** que funcionam como uma espécie de painel de controle para edição do código Java do jogo fazendo com que ele reconheça as edições, então foram criados: o **Forge**, o mais utilizado pela comunidade e o **Fabric** que veio para competir com o Forge. Com o tempo o Forge foi depriciado, e surgiu o **NeoForge** para versões posteriores do jogo.
 
 O processo de criação se baseia na investigação, onde os desenvolvedores implementaram a base do código dos seus Load Models para o Forge e o Fabric, onde você pode baixar e editar via IDE.
 
-Portar mods de Minecraft pra versões modernas (tipo 1.20.x e acima, como esse “26.1.2” que você citou — provavelmente você quis dizer uma versão recente do Forge/NeoForge ou algo do tipo) não é uma “atualização simples”, é mais parecido com reconstruir o mod em cima de um Minecraft novo, porque o jogo muda não só nomes de funções, mas estrutura inteira de sistemas internos, renderização, registro de itens, eventos e até coisas básicas como entidades e networking.
+Portar mods de Minecraft pra versões modernas (tipo 1.20.x e acima, como esse “26.1.2”, uma versão recente do Forge/NeoForge ou algo do tipo) não é uma “atualização simples”, é mais parecido com reconstruir o mod em cima de um Minecraft novo, porque o jogo muda não só nomes de funções, mas estrutura inteira de sistemas internos, renderização, registro de itens, eventos e até coisas básicas como entidades e networking.
 
 O primeiro ponto que você precisa entender é que quase nunca existe “portabilidade automática real”. Essas ferramentas tipo “AI converter mod” ou coisas que prometem converter jar geralmente só funcionam em casos muito simples ou quebram mods medianos/grandes, porque o problema não é só sintaxe, é arquitetura do Minecraft mudando entre versões. Então o caminho real sempre é: pegar o código-fonte do mod (sem isso, praticamente acabou a conversa) e reescrever ele contra o novo mod loader e nova API.
 
