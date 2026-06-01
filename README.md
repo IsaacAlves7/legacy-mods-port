@@ -100,19 +100,19 @@ legacy-mods-port/
 > [!Important]
 > Agora o ponto mais importante não é a árvore em si, mas o papel real de cada camada dentro da ideia de “portador de mods 1.7.10”.
 
-A pasta compat/forge1710 basicamente vira uma “Forge fantasma”, onde você recria o que o mod antigo espera existir. Mods 1.7.10 dependem muito de GameRegistry, eventos globais simples, IDs estáticos e lifecycle do FML antigo, então aqui você cria shims que traduzem isso para o sistema moderno de registries e event bus do NeoForge. Isso é o coração do port.
+1. A pasta `compat/forge1710` basicamente vira uma “Forge fantasma”, onde você recria o que o mod antigo espera existir. Mods 1.7.10 dependem muito de GameRegistry, eventos globais simples, IDs estáticos e lifecycle do FML antigo, então aqui você cria shims que traduzem isso para o sistema moderno de registries e event bus do NeoForge. Isso é o coração do port.
 
-Já compat/minecraft não tenta imitar Forge, mas sim “alisar diferenças do Minecraft”. Por exemplo, em 1.7.10 você tinha um modelo de bloco muito mais simples; hoje você precisa lidar com estados de bloco, components e sistemas data-driven. Então essas classes funcionam como adaptadores de comportamento, não de API.
+2. Já `compat/minecraft` não tenta imitar Forge, mas sim “alisar diferenças do Minecraft”. Por exemplo, em 1.7.10 você tinha um modelo de bloco muito mais simples; hoje você precisa lidar com estados de bloco, components e sistemas data-driven. Então essas classes funcionam como adaptadores de comportamento, não de API.
 
-A pasta runtime é o bootstrap real. Aqui você decide como mods antigos vão ser carregados. Em projetos sérios, essa camada faz três coisas: escaneia mods antigos, injeta classes em runtime e intercepta chamadas críticas antes do NeoForge assumir controle total. É a parte mais perigosa do sistema porque mexe com classloading.
+3. A pasta `runtime` é o bootstrap real. Aqui você decide como mods antigos vão ser carregados. Em projetos sérios, essa camada faz três coisas: escaneia mods antigos, injeta classes em runtime e intercepta chamadas críticas antes do NeoForge assumir controle total. É a parte mais perigosa do sistema porque mexe com classloading.
 
-O transformer/ é onde você entra no nível mais baixo possível sem virar “hack loader”. Ele serve para remapear nomes antigos (obfuscation mapping de 1.7.10 é brutal), redirecionar métodos quebrados e, em alguns casos, modificar bytecode pra fazer mods antigos compilarem e rodarem sem alteração total. Aqui você usa ASM ou similar.
+4. O `transformer/` é onde você entra no nível mais baixo possível sem virar “hack loader”. Ele serve para remapear nomes antigos (obfuscation mapping de 1.7.10 é brutal), redirecionar métodos quebrados e, em alguns casos, modificar bytecode pra fazer mods antigos compilarem e rodarem sem alteração total. Aqui você usa ASM ou similar.
 
-O mixin/ entra como ferramenta moderna pra substituir hooks antigos de CoreMod. Em vez de alterar bytecode direto o tempo todo, você injeta comportamento em pontos específicos do Minecraft moderno para simular comportamento antigo. Em port real, mixin reduz muito a necessidade de transformer bruto.
+5. O `mixin/` entra como ferramenta moderna pra substituir hooks antigos de CoreMod. Em vez de alterar bytecode direto o tempo todo, você injeta comportamento em pontos específicos do Minecraft moderno para simular comportamento antigo. Em port real, mixin reduz muito a necessidade de transformer bruto.
 
-E loader/ é basicamente a “infra de compatibilidade de mods antigos”: ele encontra jars 1.7.10, tenta identificar mod main classes, simula FML lifecycle (preInit, init, postInit), e injeta isso no ciclo moderno do NeoForge. Sem isso, mods antigos nem “nascem” dentro do loader novo.
+6. E `loader/` é basicamente a “infra de compatibilidade de mods antigos”: ele encontra jars 1.7.10, tenta identificar mod main classes, simula FML lifecycle (preInit, init, postInit), e injeta isso no ciclo moderno do NeoForge. Sem isso, mods antigos nem “nascem” dentro do loader novo.
 
-Se você quiser levar isso para um nível mais real ainda, o próximo passo seria eu te mostrar como seria o LegacyModLoaderRuntime.java funcionando de verdade (com simulação de FML 1.7.10 rodando dentro do NeoForge), porque ali está 80% da complexidade prática desse tipo de projeto.
+Se você quiser levar isso para um nível mais real ainda, o próximo passo seria eu te mostrar como seria o `LegacyModLoaderRuntime.java` funcionando de verdade (com simulação de FML 1.7.10 rodando dentro do NeoForge), porque ali está 80% da complexidade prática desse tipo de projeto.
 
 1) **Porting Layer / Compatibility Wrapper** (Abordagem Recomendada): É uma camada de software que traduz chamadas de API antigas (Forge 1.7.10) para APIs modernas (NeoForge/Fabric 1.21), permitindo que código antigo funcione em novas versões sem modificação direta.
 
