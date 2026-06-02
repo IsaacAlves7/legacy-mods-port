@@ -1,3 +1,5 @@
+<img height="177" alt="logo-minecraft" src="https://github.com/user-attachments/assets/bd2945b0-7c4c-4840-8108-46bd3d894ae8" />
+
 > Versículo chave: "Consagre ao Senhor tudo o que você faz, e os seus planos serão bem-sucedidos." - Provérbios 16:3
 
 ## Legacy Mods port for Minecraft Java Edition (1.7.10 - 26.1.2)
