@@ -2,10 +2,10 @@
 
 > Versículo chave: "Consagre ao Senhor tudo o que você faz, e os seus planos serão bem-sucedidos." - Provérbios 16:3
 
-## Legacy Mods port for Minecraft Java Edition (1.7.10 - 26.1.2)
+# 🍂 Legacy Mods port for Minecraft Java Edition
 <a href="https://neoforged.net/"><img src="https://github.com/user-attachments/assets/dedf4b64-3ab1-444d-9b75-fa1b21640ab7" align="right" height="77"></a>
 
-Como o Minecraft Java Edition não possui código-fonte aberto (Open-source) para podermos editar o conteúdo do jogo, foram criados então os famosos **ModLoaders** que funcionam como uma espécie de painel de controle para edição do código Java do jogo fazendo com que ele reconheça as edições, então foram criados: o **Forge**, o mais utilizado pela comunidade e o **Fabric** que veio para competir com o Forge. Com o tempo o Forge foi depriciado, e surgiu o **NeoForge** para versões posteriores do jogo.
+Como o Minecraft Java Edition não possui código-fonte aberto (Open-source) para podermos editar o conteúdo do jogo, foram criados então os famosos **ModLoaders** que funcionam como uma espécie de painel de controle para edição do código Java do jogo fazendo com que ele reconheça as edições, então foram criados: o **Forge**, o mais utilizado pela comunidade e o **Fabric** que veio para competir com o Forge. Com o tempo o Forge foi depriciado, e surgiu o **NeoForge** para versões posteriores do jogo. (1.7.10 - 26.1.2)
 
 O processo de criação se baseia na investigação, onde os desenvolvedores implementaram a base do código dos seus Load Models para o Forge e o Fabric, onde você pode baixar e editar via IDE.
 
