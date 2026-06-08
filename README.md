@@ -140,3 +140,6 @@ public class LegacyModAdapter {
 ```
 
 <img width="136" height="150" align="right" src="https://github.com/user-attachments/assets/d483b856-c0dd-408f-9afd-2d24324ff0fc" />
+
+# 🦊 Launcher
+Converting the 1.7.10 mod for 26.1.2:
