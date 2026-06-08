@@ -118,6 +118,7 @@ legacy-mods-port/
 
 Se você quiser levar isso para um nível mais real ainda, o próximo passo seria eu te mostrar como seria o `LegacyModLoaderRuntime.java` funcionando de verdade (com simulação de FML 1.7.10 rodando dentro do NeoForge), porque ali está 80% da complexidade prática desse tipo de projeto.
 
+# 🍁 Porting mods approaches for Minecraft Java Edition
 1) **Porting Layer / Compatibility Wrapper** (Abordagem Recomendada): É uma camada de software que traduz chamadas de API antigas (Forge 1.7.10) para APIs modernas (NeoForge/Fabric 1.21), permitindo que código antigo funcione em novas versões sem modificação direta.
 
 ```java
